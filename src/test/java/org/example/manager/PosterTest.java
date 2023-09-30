@@ -47,7 +47,7 @@ public class PosterTest {
         manager.addNewMovie(six);
         manager.addNewMovie(seven);
         manager.addNewMovie(eight); //новый фильм
-        MoviesPoster[] actual = manager.movies;
+        MoviesPoster[] actual = manager.findAll();
         MoviesPoster[] expected = {one, two, three, four, five, six, seven, eight};
         Assertions.assertArrayEquals(expected, actual);
     }
