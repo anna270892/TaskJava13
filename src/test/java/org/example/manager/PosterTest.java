@@ -128,4 +128,96 @@ public class PosterTest {
         MoviesPoster[] expected = {eight, seven, six, five, four, three, two};
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    //вывести фильмы в обратном порядке от добавления последнего фильма, когда в менеджере фильмов меньше чем лимит
+    @Test
+    void lessThanLimit1() {
+        Poster manager = new Poster(4);
+        manager.addNewMovie(one);
+        manager.addNewMovie(two);
+        manager.addNewMovie(three);
+        MoviesPoster[] actual = manager.getLastAdd();
+        MoviesPoster[] expected = {three, two, one};
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    //вывести фильмы в порядке добавления первого фильма, когда в менеджере фильмов меньше чем лимит
+    @Test
+    void lessThanLimit2() {
+        Poster manager = new Poster(4);
+        manager.addNewMovie(one);
+        manager.addNewMovie(two);
+        manager.addNewMovie(three);
+        MoviesPoster[] actual = manager.findAll();
+        MoviesPoster[] expected = {one, two, three};
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    //вывести фильмы в обратном порядке от добавления последнего фильма, когда в менеджере фильмов больше чем лимит
+    @Test
+    void moreThanTheLimit1() {
+        Poster manager = new Poster(4);
+        manager.addNewMovie(one);
+        manager.addNewMovie(two);
+        manager.addNewMovie(three);
+        manager.addNewMovie(four);
+        manager.addNewMovie(five);
+        manager.addNewMovie(six);
+        manager.addNewMovie(seven);
+        manager.addNewMovie(eight); //новый фильм
+        MoviesPoster[] actual = manager.getLastAdd();
+        MoviesPoster[] expected = {eight, seven, six, five};
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    //вывести фильмы в порядке добавления первого фильма, когда в менеджере фильмов больше чем лимит
+    @Test
+    void moreThanTheLimit2() {
+        Poster manager = new Poster(4);
+        manager.addNewMovie(one);
+        manager.addNewMovie(two);
+        manager.addNewMovie(three);
+        manager.addNewMovie(four);
+        manager.addNewMovie(five);
+        manager.addNewMovie(six);
+        manager.addNewMovie(seven);
+        manager.addNewMovie(eight); //новый фильм
+        MoviesPoster[] actual = manager.findAll();
+        MoviesPoster[] expected = {one, two, three, four, five, six, seven, eight};
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    //вывести фильмы в обратном порядке от добавления последнего фильма, когда в менеджере фильмов столько же фильмов, сколько в лимите
+    @Test
+    void theSameNumber1() {
+        Poster manager = new Poster(8);
+        manager.addNewMovie(one);
+        manager.addNewMovie(two);
+        manager.addNewMovie(three);
+        manager.addNewMovie(four);
+        manager.addNewMovie(five);
+        manager.addNewMovie(six);
+        manager.addNewMovie(seven);
+        manager.addNewMovie(eight); //новый фильм
+        MoviesPoster[] actual = manager.getLastAdd();
+        MoviesPoster[] expected = {eight, seven, six, five, four, three, two, one};
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    //вывести фильмы в порядке добавления первого фильма, когда в менеджере фильмов столько же фильмов, сколько в лимите
+    @Test
+    void theSameNumber2() {
+        Poster manager = new Poster(8);
+        manager.addNewMovie(one);
+        manager.addNewMovie(two);
+        manager.addNewMovie(three);
+        manager.addNewMovie(four);
+        manager.addNewMovie(five);
+        manager.addNewMovie(six);
+        manager.addNewMovie(seven);
+        manager.addNewMovie(eight); //новый фильм
+        MoviesPoster[] actual = manager.findAll();
+        MoviesPoster[] expected = {one, two, three, four, five, six, seven, eight};
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }

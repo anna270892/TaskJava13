@@ -48,8 +48,6 @@ public class Poster {
     //метод вывода всех фильмов в порядке добавления
     public MoviesPoster[] findAll() {
         MoviesPoster[] outputOfAllMovies = getMovies();
-        for (MoviesPoster movie : outputOfAllMovies) {
-        }
         return outputOfAllMovies;
     }
 
